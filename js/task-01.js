@@ -1,16 +1,5 @@
-// Number of categories: 3
-
-// Category: Animals
-// Elements: 4
-
-// Category: Products
-// Elements: 3
-
-// Category: Technologies
-// Elements: 5
 const itemsRef = document.querySelectorAll(".item");
 const categoriesNamesRef = document.querySelectorAll(".item h2");
-const elementsRef = document.querySelectorAll(".item li");
 const ulRef = document.querySelectorAll("#categories ul");
 
 const getNumberOfCategories = () => {
@@ -34,4 +23,3 @@ const getCategoryInfo = () => {
 
 getNumberOfCategories();
 getCategoryInfo();
-getNumberOfElements();
