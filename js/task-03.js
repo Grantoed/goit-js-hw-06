@@ -15,9 +15,18 @@ const images = [
   },
 ];
 
-const elements = images.map((image) =>
-  galleryRef.insertAdjacentHTML(
+// const elements = images.map((image) =>
+//   galleryRef.insertAdjacentHTML(
+//     "afterbegin",
+//     `<li class='gallery__item'><img class='gallery__image' src='${image.url}' alt='${image.alt}'></li>`
+//   )
+// );
+
+const elements = images.map(
+  (image) => (
     "afterbegin",
     `<li class='gallery__item'><img class='gallery__image' src='${image.url}' alt='${image.alt}'></li>`
   )
 );
+
+galleryRef.insertAdjacentHTML("afterbegin", elements);
