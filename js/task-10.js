@@ -23,12 +23,65 @@
 // }
 // Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
 
-const inputRef = document.querySelector('[type="number"]');
-const btnCreate = document.querySelector("[data-create]");
-const btnDestroy = document.querySelector("[data-destroy]");
-const boxesRef = document.querySelector("#boxes");
+// -------------------------------------------------------------------------------------------------------------------------------
+
+// const inputRef = document.querySelector('[type="number"]');
+// const btnCreate = document.querySelector("[data-create]");
+// const btnDestroy = document.querySelector("[data-destroy]");
+// const boxesRef = document.querySelector("#boxes");
+
+// btnCreate.addEventListener("click", createBoxes);
 
 // function createBoxes(amount) {
 //   const markup = `<div class="newbox"></div>`;
-//   return (boxesRef.innerHTML = markup.repeat(amount));
+
+//   boxesRef.insertAdjacentHTML("beforeend", markup);
+//   const newBox = boxesRef.children[boxesRef.children.length - 1];
+
+//   newBox.style.width = "30px";
+//   newBox.style.height = "30px";
+//   newBox.style.backgroundColor = getRandomHexColor();
 // }
+
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215)
+//     .toString(16)
+//     .padStart(6, 0)}`;
+// }
+
+// inputRef.addEventListener("input", (event) => {
+//   const inputValue = event.currentTarget.value;
+//   return inputValue;
+// });
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+const btnCreate = document.querySelector("[data-create]");
+
+btnCreate.addEventListener("click", (e) => {
+  const inputValue = document.querySelector('[type="number"]').value;
+  render(inputValue);
+});
+
+function render(amount) {
+  for (let i = 0; i < amount; i++) {
+    createEl();
+  }
+}
+
+function createEl() {
+  const parent = document.querySelector("#boxes");
+  const div = document.createElement("div");
+  div.className = "new-div";
+  div.style.width = "30px";
+  div.style.height = "30px";
+  div.style.border = "1px solid #000";
+  div.style.background = getRandomColor();
+  parent.append(div);
+}
+
+function getRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(0, 16)}`;
+}

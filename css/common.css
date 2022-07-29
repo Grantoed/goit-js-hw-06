@@ -37,3 +37,8 @@ button {
   height: 100%;
   width: 100%;
 }
+
+.new-div {
+  display: inline-block;
+  margin-right: 5px;
+}
